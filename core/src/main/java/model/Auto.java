@@ -6,7 +6,6 @@ import exception.NemJoKobcenti;
 import exception.UresMezo;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class Auto {
     private String marka;
@@ -98,8 +97,7 @@ public class Auto {
     // TODO ezt még nézd meg !!!
     public void setGyartasEve(int gyartasEve) throws NemJoGyEv {
         int date = LocalDate.now().getYear();
-        System.out.println("DÁTUM" + date);
-        if (gyartasEve < 1900) {
+        if (gyartasEve < 1900 || gyartasEve > date) {
             throw new NemJoGyEv();
         }
         this.gyartasEve = gyartasEve;
@@ -110,7 +108,7 @@ public class Auto {
     }
 
     public void setMuszakiVizsgaIdo(LocalDate muszakiVizsgaIdo) throws NemJoDatum {
-        if (muszakiVizsgaIdo.isBefore(LocalDate.now()) || muszakiVizsgaIdo.isAfter(LocalDate.now())) {
+        if (muszakiVizsgaIdo.isAfter(LocalDate.now())) {
             throw new NemJoDatum();
         }
         this.muszakiVizsgaIdo = muszakiVizsgaIdo;
