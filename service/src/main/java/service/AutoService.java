@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class AutoService {
-    private IAutoDAO dao;
-    private Logger logger = Logger.getLogger(this.getClass());
+    IAutoDAO dao;
+    Logger logger = Logger.getLogger(this.getClass());
 
     public AutoService(IAutoDAO dao) {
         this.dao = dao;
@@ -30,7 +30,7 @@ public class AutoService {
     public void deleteAuto(Auto auto) throws IOException, AutoNotFound {
         dao.deleteAuto(auto);
     }
-    private Collection<Auto> autoCollection() throws IOException {
+    public Collection<Auto> autoCollection() throws IOException {
         return dao.readAllAuto();
     }
 
