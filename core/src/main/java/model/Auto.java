@@ -94,7 +94,6 @@ public class Auto {
         return gyartasEve;
     }
 
-    // TODO ezt még nézd meg !!!
     public void setGyartasEve(int gyartasEve) throws NemJoGyEv {
         int date = LocalDate.now().getYear();
         if (gyartasEve < 1900 || gyartasEve > date) {

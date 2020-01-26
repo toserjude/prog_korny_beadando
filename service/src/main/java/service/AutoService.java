@@ -46,7 +46,7 @@ public class AutoService {
                 result.add(auto);
             }
         }
-        logger.debug(marka + " márkájú autó " + result.size() + " db van.");
+        logger.debug(marka + " markaju auto " + result.size() + " db van.");
         return result;
     }
 

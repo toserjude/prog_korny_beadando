@@ -24,14 +24,14 @@ public class AutoDAO implements IAutoDAO {
         this.mapper = new ObjectMapper();
         this.mapper.registerModule(new JavaTimeModule());
         if (!this.jsonfile.exists()) {
-            logger.warn("Fájl létrehozva " + jsonfile);
+            logger.warn("Fajl letrehozva " + jsonfile);
             this.jsonfile.createNewFile();
             FileWriter writer = new FileWriter(this.jsonfile);
             writer.write("[]");
             writer.close();
         }
         autoCollection = readAllAuto();
-        logger.info("Az adatbázis inicializálva lett a " + jsonfile + " fájllal.");
+        logger.info("Az adatbazis inicializalva lett a " + jsonfile + " fajllal.");
     }
 
     public Collection<Auto> readAllAuto() throws IOException {
@@ -45,7 +45,7 @@ public class AutoDAO implements IAutoDAO {
     public void addAuto(Auto newAuto) throws IOException {
         try {
             selectAutoByRendszam(newAuto.getRendszam());
-            logger.warn("A rendszám már szerepel " + newAuto);
+            logger.warn("A rendszam mar szerepel " + newAuto);
             throw new AutoNotFound();
         } catch (AutoNotFound autoNotFound) {
             this.autoCollection.add(newAuto);
